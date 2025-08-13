@@ -1,25 +1,40 @@
-import React from 'react'
+import axios from "axios";
+import { useDispatch } from "react-redux";
+import { removeFeed } from "../utils/slices/feedSlice";
 
-const UserCard = () => {
-    // const {firstName, lastName,age} = user;
+const UserCard = ({user}) => {
+    // console.log(user);
+    const dispatch= useDispatch();
+    const {_id,firstName,lastName,age,photoUrl,about,skills,gender } = user;
+    const handleSendRequest = async(status,userId)=>{
+        try{
+
+            const res = await axios.post("http://localhost:1399/request/send/"+status+"/"+userId,{},{withCredentials:true});
+            dispatch(removeFeed(userId));
+        }catch(err){
+            console.log(err);
+        }
+    }
     return (
-        <div>
-            <div className="card bg-base-100 w-96 shadow-sm">
-                <figure>
-                    <img
-                        src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-                        alt="Shoes" />
-                </figure>
-                <div className="card-body">
-                    <h2 className="card-title">Card</h2>
-                    <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
-                    <div className="card-actions justify-end">
-                        <button className="btn btn-primary">Buy Now</button>
-                    </div>
+        <div className="card bg-[#1b2b3b] w-96 shadow-sm mx-auto">
+            <figure className="px-10 pt-10">
+                <img
+                    src={photoUrl}
+                    alt="Shoes"
+                    className="rounded-xl" />
+            </figure>
+            <div className="card-body flex items-center">
+                <h2 className="card-title">{firstName+" "+lastName}</h2>
+                <p>Description : {about}</p>
+                <p>Gender : {gender}, Age:{age}</p>
+                <p>Skills : {skills?.join(" , ")}</p>
+                <div className="card-actions">
+                    <button className="btn btn-secondary" onClick={()=>handleSendRequest("Ignored",_id)}>Ignore</button>
+                    <button className="btn btn-success" onClick={()=>handleSendRequest("interested",_id)}>Connect</button>
                 </div>
             </div>
         </div>
     )
 }
 
-export default UserCard
+export default UserCard;
