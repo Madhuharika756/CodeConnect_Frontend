@@ -40,7 +40,7 @@ const Login = () => {
                     </fieldset>
                     <fieldset className="fieldset">
                         <legend className="fieldset-legend text-gray-700">Password</legend>
-                        <input type="text" className="input" placeholder="Type here" value={password} onChange={(e)=>{setPassword(e.target.value)}}/>
+                        <input type="password" className="input" placeholder="Type here" value={password} onChange={(e)=>{setPassword(e.target.value)}}/>
                     </fieldset>
                         <p className="text-red-500 text-lg">{error}</p>
                     <div className="card-actions justify-center mt-5">
