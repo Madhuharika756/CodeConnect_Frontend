@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { removeFeed } from "../utils/slices/feedSlice";
+import { BASE_URL } from "../utils/constant";
 
 const UserCard = ({user}) => {
     // console.log(user);
@@ -9,7 +10,7 @@ const UserCard = ({user}) => {
     const handleSendRequest = async(status,userId)=>{
         try{
 
-            const res = await axios.post("http://localhost:1399/request/send/"+status+"/"+userId,{},{withCredentials:true});
+            const res = await axios.post(BASE_URL+"/request/send/"+status+"/"+userId,{},{withCredentials:true});
             dispatch(removeFeed(userId));
         }catch(err){
             console.log(err);
@@ -20,7 +21,7 @@ const UserCard = ({user}) => {
             <figure className="px-10 pt-10">
                 <img
                     src={photoUrl}
-                    alt="Shoes"
+                    alt="Your Photo"
                     className="rounded-xl" />
             </figure>
             <div className="card-body flex items-center">

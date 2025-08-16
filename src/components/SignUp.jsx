@@ -3,6 +3,7 @@ import { useState } from "react"
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { addUser } from "../utils/slices/userSlice";
+import { BASE_URL } from "../utils/constant";
 
 const SignUp = () => {
 
@@ -22,7 +23,7 @@ const SignUp = () => {
 
     const handleSignUp = async () => {
         try {
-            const res = await axios.post("http://localhost:1399/signUp", { firstName, lastName, email, password, age, gender }, { withCredentials: true });
+            const res = await axios.post(BASE_URL+"/signUp", { firstName, lastName, email, password, age, gender }, { withCredentials: true });
             dispatch(addUser(res.data));
             setShowTast(true);
             setTimeout(() => {
@@ -60,7 +61,7 @@ const SignUp = () => {
                     </fieldset>
                     <fieldset className="fieldset">
                         <legend className="fieldset-legend text-gray-700">Password</legend>
-                        <input type="text" className="input w-full" placeholder="Type here" value={password}
+                        <input type="password" className="input w-full" placeholder="Type here" value={password}
                             onChange={(e) => { setPassword(e.target.value) }} />
                     </fieldset>
                     <div className="flex flex-row">

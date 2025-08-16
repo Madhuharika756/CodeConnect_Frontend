@@ -3,6 +3,7 @@ import Dev_Logo from "../assets/Dev_Logo.png"
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { removeUser } from "../utils/slices/userSlice";
+import { BASE_URL } from "../utils/constant";
 
 const Navbar = () => {
     const user = useSelector((store) => store.user);
@@ -10,7 +11,7 @@ const Navbar = () => {
     const dispatch = useDispatch();
     const handleLogOut = async () => {
         try {
-            await axios.post("http://localhost:1399/logout", {}, { withCredentials: true });
+            await axios.post(BASE_URL+"/logout", {}, { withCredentials: true });
             dispatch(removeUser());
             return navigate("/");
         }

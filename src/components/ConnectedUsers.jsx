@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addConnections } from "../utils/slices/connectionSlice";
+import { BASE_URL } from "../utils/constant";
 
 const ConnectedUsers = () => {
 
@@ -9,7 +10,7 @@ const ConnectedUsers = () => {
     const dispatch = useDispatch();
     const fetchconnections = async () => {
         try {
-            const res = await axios.get("http://localhost:1399/user/connections", { withCredentials: true });
+            const res = await axios.get(BASE_URL+"/user/connections", { withCredentials: true });
             dispatch(addConnections(res.data.data));
             console.log(res?.data?.data);
         } catch (err) {
@@ -38,7 +39,6 @@ const ConnectedUsers = () => {
                             <div>
                                 <h1 className="text-xl font-semibold">{firstName + " " +lastName}</h1>
                                 <h2 className="text-md">Age: {age + " , " +gender + " ; " +about}</h2>
-                                {/* <p className="text-md">{connections[0].about}</p> */}
                                 <h2 className="text-md">Skills : {skills.join(" , ")}</h2>
                             </div>
                         </div>

@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState } from "react"
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/slices/userSlice";
+import { BASE_URL } from "../utils/constant";
 
 const EditProfile = ({ user }) => {
     const [firstName, setFirstName] = useState(user.firstName);
@@ -16,7 +17,7 @@ const EditProfile = ({ user }) => {
     const handleEditProfile = async () => {
         setError("");
         try {
-            const res = await axios.post("http://localhost:1399/updateProfile", { firstName, lastName, age, gender, photoUrl, about }, { withCredentials: true });
+            const res = await axios.post(BASE_URL+"/updateProfile", { firstName, lastName, age, gender, photoUrl, about }, { withCredentials: true });
             console.log(res);
             dispatch(addUser(res?.data?.data));
             setShowTast(true);
