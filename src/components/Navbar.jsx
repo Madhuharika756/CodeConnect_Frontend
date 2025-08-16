@@ -23,7 +23,6 @@ const Navbar = () => {
 
     return (
         <>
-            {/* <h1 className="text-xl text-white">Hello WOrld</h1> */}
             <div className="navbar bg-gradient-to-r from-sky-400 to-cyan-200 shadow-sm px-5">
                 <div className="flex-1">
                     <div className="flex flex-row items-center">

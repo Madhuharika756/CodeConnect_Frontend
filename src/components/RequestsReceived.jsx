@@ -49,7 +49,6 @@ const RequestReceived = () => {
                             <div className="mr-4 w-3/6">
                                 <h1 className="text-xl font-semibold">{firstName + " " + lastName}</h1>
                                 <h2 className="text-md">Age: {age + " , " + gender + " ; " + about}</h2>
-                                {/* <p className="text-md">{connections[0].about}</p> */}
                                 <h2 className="text-md">Skills : {skills.join(" , ")}</h2>
                             </div>
                             <div className="text-end w-2/6">
