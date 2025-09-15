@@ -8,6 +8,7 @@ import Profile from "./components/Profile"
 import ConnectedUsers from "./components/ConnectedUsers"
 import RequestReceived from "./components/RequestsReceived"
 import SignUp from "./components/SignUp"
+import Chat from "./components/Chat"
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
               <Route path="/profile" element={<Profile/>}/>
               <Route path="/connections" element={<ConnectedUsers/>}/>
               <Route path="/requests"  element={<RequestReceived/>}/>
+              <Route path="/chat/:targetUserId" element={ <Chat/> }/>
             </Route>
           </Routes>
         </BrowserRouter>
