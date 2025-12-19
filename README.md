@@ -43,10 +43,10 @@ It provides an intuitive interface for users to explore content, interact with f
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/codeconnect-frontend.git
+git clone https://github.com/Madhuharika756/CodeConnect_Frontend.git
 
 # Navigate to project folder
-cd codeconnect-frontend
+cd CodeConnect_Frontend
 
 # Install dependencies
 npm install
