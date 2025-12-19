@@ -1,12 +1,55 @@
-# React + Vite
+# 💻 CodeConnect – Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+CodeConnect Frontend is the **user-facing web application** of the CodeConnect platform.  
+It provides an intuitive interface for users to explore content, interact with features, and communicate with backend services.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## Expanding the ESLint configuration
+- Clean user interface  
+- User authentication pages (Login / Register)  
+- Dynamic pages using React Router  
+- API integration with backend services  
+- Fast rendering with React components  
+- Modern UI styling  
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🛠️ Tech Stack
+
+- **Frontend Library:** React  
+- **Routing:** React Router  
+- **Styling:** Tailwind CSS  
+- **State Management:** React Hooks  
+- **API Communication:** Axios  
+- **Build Tool:** Vite  
+- **Language:** JavaScript (ES6+)  
+
+---
+
+## 🧠 Key Concepts Used
+
+- Functional Components  
+- React Hooks (`useState`, `useEffect`)  
+- Component-based architecture  
+- Client-side routing  
+- API integration  
+- Conditional rendering  
+
+---
+
+## ⚙️ Installation & Setup
+
+```bash
+# Clone the repository
+git clone https://github.com/your-username/codeconnect-frontend.git
+
+# Navigate to project folder
+cd codeconnect-frontend
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
