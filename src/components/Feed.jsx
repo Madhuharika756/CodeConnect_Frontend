@@ -26,7 +26,7 @@ const Feed = ()=>{
     if(feed.length==0) return( <h1>Loading...</h1> )
     return(
         (feed &&
-        <div className="bg-[#1b2b3b] h-[91vh] pt-5">
+        <div className="bg-[#1b2b3b] min-h-screen pt-28">
             <UserCard user={feed[0]}/>
         </div>
         )

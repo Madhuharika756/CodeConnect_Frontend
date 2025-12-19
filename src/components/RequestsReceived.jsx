@@ -10,14 +10,14 @@ const RequestReceived = () => {
     console.log(requests);
     const dispatch = useDispatch();
 
-    const reviewRequests = async(status,_id)=>{
-        await axios.post(BASE_URL+"/request/review/"+status+"/"+_id,{},{withCredentials:true});
+    const reviewRequests = async (status, _id) => {
+        await axios.post(BASE_URL + "/request/review/" + status + "/" + _id, {}, { withCredentials: true });
         dispatch(removeRequest(_id));
     }
 
     const fetchRequests = async () => {
         try {
-            const res = await axios.get(BASE_URL+"/user/requests/received", { withCredentials: true });
+            const res = await axios.get(BASE_URL + "/user/requests/received", { withCredentials: true });
             dispatch(addRequests(res.data.data))
 
         } catch (err) {
@@ -34,31 +34,35 @@ const RequestReceived = () => {
     if (requests.length === 0) return <h1>No Requests Found!</h1>
 
     return (
-        <div className="bg-[#1b2b3b] h-[91vh]">
-            <h1 className="text-3xl text-center font-bold pt-5">Connection Requests!</h1>
-            {
-                requests.map((request) => {
-                    const { _id, firstName, lastName, age, gender, about, photoUrl, skills } = request.fromUserId;
-                    ;
-                    return (
-                        <div key={_id} className="bg-gray-300 flex justify text-gray-700 items-center 
+        <div className="bg-[#1b2b3b] min-h-screen">
+            <h1 className="text-3xl text-center font-bold pt-20">Connection Requests!</h1>
+            <div className="flex-1 overflow-y-auto mt">
+
+
+                {
+                    requests.map((request) => {
+                        const { _id, firstName, lastName, age, gender, about, photoUrl, skills } = request.fromUserId;
+                        ;
+                        return (
+                            <div key={_id} className="bg-gray-300 flex justify text-gray-700 items-center 
                                                     p-3 rounded-2xl mt-5 w-5/12 mx-auto">
-                            <div className="mr-4 w-1/6">
-                                <img src={photoUrl} alt="Your Photo" className="w-26 h-26 rounded-full" />
+                                <div className="mr-4 w-1/6">
+                                    <img src={photoUrl} alt="Your Photo" className="w-26 h-26 rounded-full" />
+                                </div>
+                                <div className="mr-4 w-3/6">
+                                    <h1 className="text-xl font-semibold">{firstName + " " + lastName}</h1>
+                                    <h2 className="text-md">Age: {age + " , " + gender + " ; " + about}</h2>
+                                    <h2 className="text-md">Skills : {skills.join(" , ")}</h2>
+                                </div>
+                                <div className="text-end w-2/6">
+                                    <button className="btn btn-success mr-1" onClick={() => reviewRequests("accepted", request._id)}>Accept</button>
+                                    <button className="btn btn-error" onClick={() => reviewRequests("rejected", request._id)}>Reject</button>
+                                </div>
                             </div>
-                            <div className="mr-4 w-3/6">
-                                <h1 className="text-xl font-semibold">{firstName + " " + lastName}</h1>
-                                <h2 className="text-md">Age: {age + " , " + gender + " ; " + about}</h2>
-                                <h2 className="text-md">Skills : {skills.join(" , ")}</h2>
-                            </div>
-                            <div className="text-end w-2/6">
-                                <button className="btn btn-success mr-1" onClick={()=>reviewRequests("accepted",request._id)}>Accept</button>
-                                <button className="btn btn-error" onClick={()=>reviewRequests("rejected",request._id)}>Reject</button>
-                            </div>
-                        </div>
-                    )
-                })
-            }
+                        )
+                    })
+                }
+            </div>
 
         </div>
     )

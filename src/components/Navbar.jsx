@@ -23,7 +23,7 @@ const Navbar = () => {
 
     return (
         <>
-            <div className="navbar bg-gradient-to-r from-sky-400 to-cyan-200 shadow-sm px-5">
+            <div className="fixed navbar bg-gradient-to-r from-sky-400 to-cyan-200 shadow-sm px-5">
                 <div className="flex-1">
                     <div className="flex flex-row items-center">
                         <img src={Dev_Logo} alt="CodeConnect Logo" className="w-20 h-auto rounded-full" />

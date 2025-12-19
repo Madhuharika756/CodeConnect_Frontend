@@ -21,8 +21,8 @@ const Chat = () => {
     }, [])
     return (
 
-        <div className="bg-[#1b2b3b] h-[91vh]">
-            <h1 className="text-3xl text-white text-center font-semibold pt-3 mb-2">Chat</h1>
+        <div className="bg-[#1b2b3b] min-h-screen">
+            <h1 className="text-3xl text-white text-center font-semibold pt-20 mb-2">Chat</h1>
             <div className="w-3/6 m-auto pl-1  bg-gray-300 border-2 rounded-t-lg">
                 <h3 className="text-xl text-blue-800 font-bold py-2">{firstName }</h3>
             </div>

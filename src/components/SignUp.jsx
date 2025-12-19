@@ -36,7 +36,7 @@ const SignUp = () => {
     }
 
     return (
-        <div className="bg-[#1b2b3b] h-[91vh] pt-17">
+        <div className="bg-[#1b2b3b] min-h-screen pt-17">
             <div className="card bg-gray-300 text-neutral-content w-120 mx-auto">
                 <div className="card-body ">
                     <div className="flex justify-center items-center">
