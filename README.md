@@ -12,7 +12,14 @@ It provides an intuitive interface for users to explore content, interact with f
 - Dynamic pages using React Router  
 - API integration with backend services  
 - Fast rendering with React components  
-- Modern UI styling  
+
+### 💬 Real-Time Chat Feature
+- One-to-one real-time chat with connected users  
+- Instant message updates using **WebSockets (Socket.IO)**  
+- Chat interface with message history  
+- Real-time UI updates without page refresh  
+- Secure communication for authenticated users  
+
 
 ---
 
