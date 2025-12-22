@@ -5,6 +5,7 @@ import { addConnections } from "../utils/slices/connectionSlice";
 import { BASE_URL } from "../utils/constant";
 import { Link } from "react-router-dom";
 
+
 const ConnectedUsers = () => {
     const connections = useSelector((store) => store.connections);
     const dispatch = useDispatch();

@@ -1,5 +1,12 @@
-import io from "socket.io-client";
-import { BASE_URL } from "./constant";
-export const createSocketConnection = ()=>{
-    return io(BASE_URL);
-}
+import { io } from "socket.io-client";
+
+let socket;
+
+export const createSocketConnection = () => {
+  if (!socket) {
+    socket = io("http://localhost:1399", {
+      withCredentials: true,
+    });
+  }
+  return socket;
+};
